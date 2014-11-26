@@ -1,13 +1,12 @@
-Craft-Unique-Text-FieldType
-===========================
+# Craft-Unique-Text-FieldType
 
 A simple text FieldType plugin that validates the saved value is unique.
 
-# Installation
+## Installation
 
 Copy the uniquetextfield directory to your Craft plugins folder and install it in the Craft settings panel.
 
-# Usage
+## Usage
 
 Create a new Field of type Unique Text Field and use as required. The field is designed to be used with Entries, Users, Assets, basically any of the core Elements. When the field is validated, the plugin checks all other entries with the same handle and Element Type to ensure the value is unique.
 
