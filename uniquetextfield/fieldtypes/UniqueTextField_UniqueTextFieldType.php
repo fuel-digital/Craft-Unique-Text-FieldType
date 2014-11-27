@@ -25,20 +25,22 @@ class UniqueTextField_UniqueTextFieldType extends PlainTextFieldType
     private function valueExists($value)
     {
         $existing = craft()->elements->getCriteria($this->element->elementType)->first(array(
-            $this->model->getAttribute('handle') => $value
+            $this->model->handle => $value
         ));
 
-        return ($existing && $existing->getAttribute('id') != $this->element->getAttribute('id'));
+        return ($existing && $existing->id != $this->element->id);
     }
 
     /**
      * Validates the field values is unique
      *
      * @param mixed $value
-     * @return true|string|array
+     * @return true|string
      */
     public function validate($value)
     {
-        return ($this->valueExists($value)) ? $this->model->getAttribute('name') . ' ' . Craft::t('must be unique') : true;
+        return ($this->valueExists($value)) ? Craft::t('{label} already exists', array(
+            'label' => $this->model->name
+        )) : true;
     }
 }
